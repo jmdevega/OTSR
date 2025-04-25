@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>Ontology for Smart Tourism and Recommendation System (OTSR)</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr","name":"Ontology for Smart Tourism and Recommendation System (OTSR)", "headline":"The OTSR ontology provides a formal representation of knowledge related to tourism offerings in various Spanish cities. It includes information on events, attractions, hotel accommodations, restaurants, and transportation systems. It provides a structured framework for representing knowledge about tourist destinations and their associated resources, enabling data interoperability and facilitating advanced personalized recommendation systems.", "dateReleased":"2025", "dateModified":"2025", "version":"v1.0.0", "license":"http://creativecommons.org/licenses/by/2.0/", "author":[{"@type":"Person","name":"Jose María De Vega Fernandez"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>Ontology for Smart Tourism and Recommendation System (OTSR)</h1>
+<img src=""https://example.org/logo.svg"" width="50/">
+<h2>Release: 2025</h2>
+
+
+<dl>
+<dt>Modified on: 2025</dt>
+<dt>This version:</dt>
+<dd><a href="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr/1.0">http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr/1.0</a></dd>
+<dt>Latest version:</dt>
+<dd><a href="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr">http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr</a></dd>
+<dt>Previous version:</dt>
+<dd><a href="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr/1.0">http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr/1.0</a></dd>
+<dt>Revision:</dt>
+<dd>v1.0.0</dd>
+<dt>Issued on:</dt>
+<dd>Date issued</dd>
+<dt>Authors:</dt>
+<dd>Jose María De Vega Fernandez, UOC<a href="mailto:jmdevega@uoc.edu">&#9993;</a></dd>
+
+<dt>Publisher:</dt>
+<dd>Jose Maria De Vega Fernández</dd>
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.xml" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://creativecommons.org/licenses/by/2.0/" target="_blank"><img src="https://img.shields.io/badge/License-CC_BY-blue.svg" alt="http://creativecommons.org/licenses/by/2.0/" /></a>
+<a href="http://creativecommons.org/licenses/by/2.0/" rel="license" target="_blank">
+<img src="https://i.creativecommons.org/l/by/2.0/88x31.png" style="border-width:0" alt="License" />
+</a>
+<br/></dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd><dt>Cite as:</dt>
+<dd>Smart Recommendations</dd>
+<dt>Incompatible with:</dt>
+<dd><a href="""">""</a></dd>
+</dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+The OTSR ontology provides a formal representation of knowledge related to tourism offerings in various Spanish cities. It includes information on events, attractions, hotel accommodations, restaurants, and transportation systems. It provides a structured framework for representing knowledge about tourist destinations and their associated resources, enabling data interoperability and facilitating advanced personalized recommendation systems.
+</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This is a place holder text for the introduction. The introduction should briefly describe the ontology, its motivation, state of the art and goals.</span>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">The OSTR Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Attraction"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a>
+   </li>
+   <li>
+      <a href="#Beach"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Beach">Beach</a>
+   </li>
+   <li>
+      <a href="#BeachHotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BeachHotel">BeachHotel</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/ontology/Bus" title="http://dbpedia.org/ontology/Bus">Bus</a>
+   </li>
+   <li>
+      <a href="#Bus"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus">Bus</a>
+   </li>
+   <li>
+      <a href="#BusinessHotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BusinessHotel">BusinnessHotel</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/ontology/City" title="http://dbpedia.org/ontology/City">City</a>
+   </li>
+   <li>
+      <a href="#City"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">
+         <span>City</span>
+      </a>
+   </li>
+   <li>
+      <a href="#CuisineType"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType">Cuisine Type</a>
+   </li>
+   <li>
+      <a href="#Cultural"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Cultural">Cultural</a>
+   </li>
+   <li>
+      <a href="#CulturalEvent"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a>
+   </li>
+   <li>
+      <a href="#Event"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">
+         <span>Event</span>
+      </a>
+   </li>
+   <li>
+      <a href="#GastronomicEvent"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#GastronomicEvent">Gastronomic Event</a>
+   </li>
+   <li>
+      <a href="#http://dbpedia.org/ontology/Hotel" title="http://dbpedia.org/ontology/Hotel">Hotel</a>
+   </li>
+   <li>
+      <a href="#Hotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">
+         <span>Hotel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Location"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Location">Location</a>
+   </li>
+   <li>
+      <a href="#LuxuryHotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a>
+   </li>
+   <li>
+      <a href="#Monument"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">
+         <span>Monument</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Museum"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Museum">Museum</a>
+   </li>
+   <li>
+      <a href="#MusicalEvent"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MusicalEvent">MusicalEvent</a>
+   </li>
+   <li>
+      <a href="#Park"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Park">Park</a>
+   </li>
+   <li>
+      <a href="#Price"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Price">Price</a>
+   </li>
+   <li>
+      <a href="#PublicBicycle"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#PublicBicycle">Public Bicycle</a>
+   </li>
+   <li>
+      <a href="#Rating"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Rating">Rating</a>
+   </li>
+   <li>
+      <a href="#Restaurant"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">
+         <span>Restaurant</span>
+      </a>
+   </li>
+   <li>
+      <a href="#RuralHotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#RuralHotel">RuralHotel</a>
+   </li>
+   <li>
+      <a href="#SportsEvent"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#SportsEvent">SportsEvent</a>
+   </li>
+   <li>
+      <a href="#Subway"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Subway">Subway</a>
+   </li>
+   <li>
+      <a href="#Taxi"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Taxi">Taxi</a>
+   </li>
+   <li>
+      <a href="#TechEvent"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TechEvent">TechEvent</a>
+   </li>
+   <li>
+      <a href="#TourismResource"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a>
+   </li>
+   <li>
+      <a href="#TouristicHotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TouristicHotel">TouristicHotel</a>
+   </li>
+   <li>
+      <a href="#Tram"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Tram">Tram</a>
+   </li>
+   <li>
+      <a href="#Transport"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasCuisine"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a>
+   </li>
+   <li>
+      <a href="#locatedIn"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a>
+   </li>
+   <li>
+      <a href="#occursIn"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasDate"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a>
+   </li>
+   <li>
+      <a href="#hasName"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a>
+   </li>
+   <li>
+      <a href="#hasPrice"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a>
+   </li>
+   <li>
+      <a href="#hasRating"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a>
+   </li>
+   <li>
+      <a href="#hasStar"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasStar">hasStar</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description">
+         <span>description</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"
+         title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+         <span>is Rule Enabled</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/issued" title="http://purl.org/dc/terms/issued">
+         <span>issued</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://creativecommons.org/ns#license" title="http://creativecommons.org/ns#license">
+         <span>license</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified">
+         <span>modified</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://www.w3.org/2004/02/skos/core#note" title="http://www.w3.org/2004/02/skos/core#note">
+         <span>note</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher">
+         <span>publisher</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title">
+         <span>title</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#City"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">
+         <span>City</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Event"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">
+         <span>Event</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Hotel"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">
+         <span>Hotel</span>
+      </a>
+   </li>
+   <li>
+      <a href="#MexicanCuisine"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine">MexicanCuisine</a>
+   </li>
+   <li>
+      <a href="#Monument"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">
+         <span>Monument</span>
+      </a>
+   </li>
+   <li>
+      <a href="#Restaurant"
+         title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">
+         <span>Restaurant</span>
+      </a>
+   </li>
+</ul><h4> SWRL Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#d4e1485">S1</a>
+   </li>
+   <li>
+      <a href="#d4e1607">S2</a>
+   </li>
+   <li>
+      <a href="#d4e1300">S3</a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">The OSTR Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">The OTSR ontology provides a formal representation of knowledge related to tourism offerings in various Spanish cities. It includes information on events, attractions, hotel accommodations, restaurants, and transportation systems. It provides a structured framework for representing knowledge about tourist destinations and their associated resources, enabling data interoperability and facilitating advanced personalized recommendation systems.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for The OSTR Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by The OSTR Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a></li>
+  <li><a href="#Beach" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Beach">Beach</a></li>
+  <li><a href="#BeachHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BeachHotel">BeachHotel</a></li>
+  <li><a href="#http://dbpedia.org/ontology/Bus" title="http://dbpedia.org/ontology/Bus">Bus</a></li>
+  <li><a href="#Bus" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus">Bus</a></li>
+  <li><a href="#BusinessHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BusinessHotel">BusinnessHotel</a></li>
+  <li><a href="#http://dbpedia.org/ontology/City" title="http://dbpedia.org/ontology/City">City</a></li>
+  <li><a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City"> <span>City</span> </a></li>
+  <li><a href="#CuisineType" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType">Cuisine Type</a></li>
+  <li><a href="#Cultural" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Cultural">Cultural</a></li>
+  <li><a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a></li>
+  <li><a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event"> <span>Event</span> </a></li>
+  <li><a href="#GastronomicEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#GastronomicEvent">Gastronomic Event</a></li>
+  <li><a href="#http://dbpedia.org/ontology/Hotel" title="http://dbpedia.org/ontology/Hotel">Hotel</a></li>
+  <li><a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel"> <span>Hotel</span> </a></li>
+  <li><a href="#Location" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Location">Location</a></li>
+  <li><a href="#LuxuryHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a></li>
+  <li><a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument"> <span>Monument</span> </a></li>
+  <li><a href="#Museum" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Museum">Museum</a></li>
+  <li><a href="#MusicalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MusicalEvent">MusicalEvent</a></li>
+  <li><a href="#Park" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Park">Park</a></li>
+  <li><a href="#Price" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Price">Price</a></li>
+  <li><a href="#PublicBicycle" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#PublicBicycle">Public Bicycle</a></li>
+  <li><a href="#Rating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Rating">Rating</a></li>
+  <li><a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant"> <span>Restaurant</span> </a></li>
+  <li><a href="#RuralHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#RuralHotel">RuralHotel</a></li>
+  <li><a href="#SportsEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#SportsEvent">SportsEvent</a></li>
+  <li><a href="#Subway" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Subway">Subway</a></li>
+  <li><a href="#Taxi" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Taxi">Taxi</a></li>
+  <li><a href="#TechEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TechEvent">TechEvent</a></li>
+  <li><a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a></li>
+  <li><a href="#TouristicHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TouristicHotel">TouristicHotel</a></li>
+  <li><a href="#Tram" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Tram">Tram</a></li>
+  <li><a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a></li>
+ </ul>
+ <div class="entity" id="Attraction">
+  <h3>Attraction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction</p>
+  <div class="comment">
+   <span class="markdown">Attraction description</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Beach" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Beach">Beach</a> <sup class="type-c" title="class">c</sup>, <a href="#Cultural" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Cultural">Cultural</a> <sup class="type-c" title="class">c</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-c" title="class">c</sup>, <a href="#Museum" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Museum">Museum</a> <sup class="type-c" title="class">c</sup>, <a href="#Park" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Park">Park</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Beach">
+  <h3>Beach<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Beach</p>
+  <div class="comment">
+   <span class="markdown">A beach attraction</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="BeachHotel">
+  <h3>BeachHotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BeachHotel</p>
+  <div class="comment">
+   <span class="markdown">A Hotel in the beach</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/ontology/Bus">
+  <h3>Bus<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/ontology/Bus</p>
+  <div class="comment">
+   <span class="markdown">Means of transport</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#Bus" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus">Bus</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Bus">
+  <h3>Bus<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus</p>
+  <div class="comment">
+   <span class="markdown">Bus transportation</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="BusinessHotel">
+  <h3>BusinnessHotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BusinessHotel</p>
+  <div class="comment">
+   <span class="markdown">A hotel for doing business</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/ontology/City">
+  <h3>City<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/ontology/City</p>
+  <div class="comment">
+   <span class="markdown">A city that contains tourism resources</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="City">
+  <h3>City<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>, <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#City">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CuisineType">
+  <h3>Cuisine Type<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType</p>
+  <div class="comment">
+   <span class="markdown">The type of cuisine served</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#MexicanCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine">MexicanCuisine</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Cultural">
+  <h3>Cultural<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Cultural</p>
+  <div class="comment">
+   <span class="markdown">A cultural attraction</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CulturalEvent">
+  <h3>CulturalEvent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent</p>
+  <div class="comment">
+   <span class="markdown">An event with cultural focus</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Event">
+  <h3>Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#GastronomicEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#GastronomicEvent">Gastronomic Event</a> <sup class="type-c" title="class">c</sup>, <a href="#MusicalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MusicalEvent">MusicalEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#SportsEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#SportsEvent">SportsEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#TechEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TechEvent">TechEvent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasDate" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Event">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GastronomicEvent">
+  <h3>Gastronomic Event<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#GastronomicEvent</p>
+  <div class="comment">
+   <span class="markdown">An event with gastronomical focus</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="http://dbpedia.org/ontology/Hotel">
+  <h3>Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://dbpedia.org/ontology/Hotel</p>
+  <div class="comment">
+   <span class="markdown">Best place to take vacations</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is equivalent to
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Hotel">
+  <h3>Hotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#BeachHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BeachHotel">BeachHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#BusinessHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BusinessHotel">BusinnessHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#RuralHotel">RuralHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TouristicHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TouristicHotel">TouristicHotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasStar" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasStar">hasStar</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Hotel">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Location">
+  <h3>Location<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Location</p>
+  <div class="comment">
+   <span class="markdown">Geographical location</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="LuxuryHotel">
+  <h3>LuxuryHotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel</p>
+  <div class="comment">
+   <span class="markdown">A Luxury Hotel</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Monument">
+  <h3>Monument<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Monument">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Museum">
+  <h3>Museum<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Museum</p>
+  <div class="comment">
+   <span class="markdown">A museum attraction</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MusicalEvent">
+  <h3>MusicalEvent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MusicalEvent</p>
+  <div class="comment">
+   <span class="markdown">An event with musical focus</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Park">
+  <h3>Park<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Park</p>
+  <div class="comment">
+   <span class="markdown">A park attraction</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Price">
+  <h3>Price<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Price</p>
+  <div class="comment">
+   <span class="markdown">Monetary amount</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PublicBicycle">
+  <h3>Public Bicycle<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#PublicBicycle</p>
+  <div class="comment">
+   <span class="markdown">A public transportation with a bicycle</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Rating">
+  <h3>Rating<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Rating</p>
+  <div class="comment">
+   <span class="markdown">A rating value between 1 and 5</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Restaurant">
+  <h3>Restaurant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Restaurant">named individual</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RuralHotel">
+  <h3>RuralHotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#RuralHotel</p>
+  <div class="comment">
+   <span class="markdown">A hotel outside cities</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SportsEvent">
+  <h3>SportsEvent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#SportsEvent</p>
+  <div class="comment">
+   <span class="markdown">An event with sports focus</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Subway">
+  <h3>Subway<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Subway</p>
+  <div class="comment">
+   <span class="markdown">A subway (Metro) transportation</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Taxi">
+  <h3>Taxi<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Taxi</p>
+  <div class="comment">
+   <span class="markdown">A taxi transportation</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TechEvent">
+  <h3>TechEvent<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TechEvent</p>
+  <div class="comment">
+   <span class="markdown">An event with technological focus</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TourismResource">
+  <h3>Tourism Resource<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource</p>
+  <div class="comment">
+   <span class="markdown">The root class for all tourism-related resources</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>, <a href="#Beach" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Beach">Beach</a> <sup class="type-c" title="class">c</sup>, <a href="#BeachHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BeachHotel">BeachHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#Bus" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus">Bus</a> <sup class="type-c" title="class">c</sup>, <a href="#BusinessHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#BusinessHotel">BusinnessHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>, <a href="#CuisineType" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType">Cuisine Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Cultural" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Cultural">Cultural</a> <sup class="type-c" title="class">c</sup>, <a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>, <a href="#GastronomicEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#GastronomicEvent">Gastronomic Event</a> <sup class="type-c" title="class">c</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#Location" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Location">Location</a> <sup class="type-c" title="class">c</sup>, <a href="#LuxuryHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-c" title="class">c</sup>, <a href="#Museum" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Museum">Museum</a> <sup class="type-c" title="class">c</sup>, <a href="#Park" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Park">Park</a> <sup class="type-c" title="class">c</sup>, <a href="#Price" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Price">Price</a> <sup class="type-c" title="class">c</sup>, <a href="#PublicBicycle" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#PublicBicycle">Public Bicycle</a> <sup class="type-c" title="class">c</sup>, <a href="#Rating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Rating">Rating</a> <sup class="type-c" title="class">c</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>, <a href="#RuralHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#RuralHotel">RuralHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#SportsEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#SportsEvent">SportsEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#Subway" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Subway">Subway</a> <sup class="type-c" title="class">c</sup>, <a href="#Taxi" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Taxi">Taxi</a> <sup class="type-c" title="class">c</sup>, <a href="#TechEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TechEvent">TechEvent</a> <sup class="type-c" title="class">c</sup>, <a href="#TouristicHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TouristicHotel">TouristicHotel</a> <sup class="type-c" title="class">c</sup>, <a href="#Tram" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Tram">Tram</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDate" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>, <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a> <sup class="type-op" title="object property">op</sup>, <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#MexicanCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine">MexicanCuisine</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="TouristicHotel">
+  <h3>TouristicHotel<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TouristicHotel</p>
+  <div class="comment">
+   <span class="markdown">A touristic Hotel, near everything</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>, <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Tram">
+  <h3>Tram<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Tram</p>
+  <div class="comment">
+   <span class="markdown">A tram tranportation</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>, <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Transport">
+  <h3>Transport<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport</p>
+  <div class="comment">
+   <span class="markdown">Means of transport that includes different types</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Bus" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Bus">Bus</a> <sup class="type-c" title="class">c</sup>, <a href="#PublicBicycle" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#PublicBicycle">Public Bicycle</a> <sup class="type-c" title="class">c</sup>, <a href="#Subway" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Subway">Subway</a> <sup class="type-c" title="class">c</sup>, <a href="#Taxi" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Taxi">Taxi</a> <sup class="type-c" title="class">c</sup>, <a href="#Tram" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Tram">Tram</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a></li>
+  <li><a href="#locatedIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn">locatedIn</a></li>
+  <li><a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a></li>
+ </ul>
+ <div class="entity" id="hasCuisine">
+  <h3>hasCuisine<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine</p>
+  <div class="comment">
+   <span class="markdown">Type of cuisine served in the restaurant</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#CuisineType" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType">Cuisine Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="locatedIn">
+  <h3>locatedIn<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#locatedIn</p>
+  <div class="comment">
+   <span class="markdown">Where something is located</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topObjectProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topObjectProperty">top Object Property</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="occursIn">
+  <h3>occursIn<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn</p>
+  <div class="comment">
+   <span class="markdown">Where something happens</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasDate" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a></li>
+  <li><a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a></li>
+  <li><a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a></li>
+  <li><a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a></li>
+  <li><a href="#hasStar" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasStar">hasStar</a></li>
+ </ul>
+ <div class="entity" id="hasDate">
+  <h3>hasDate<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate</p>
+  <div class="comment">
+   <span class="markdown">Specific date on which it occurs</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasName">
+  <h3>hasName<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName</p>
+  <div class="comment">
+   <span class="markdown">Name of the entity</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasPrice">
+  <h3>hasPrice<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice</p>
+  <div class="comment">
+   <span class="markdown">Price of the service</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRating">
+  <h3>hasRating<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating</p>
+  <div class="comment">
+   <span class="markdown">User ratings</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dd>
+     <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasStar">
+  <h3>hasStar<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasStar</p>
+  <div class="comment">
+   <span class="markdown">It has stars, meaning the number of them</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://purl.org/dc/terms/description" title="http://purl.org/dc/terms/description"> <span>description</span> </a></li>
+  <li><a href="#http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled" title="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"> <span>is Rule Enabled</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/issued" title="http://purl.org/dc/terms/issued"> <span>issued</span> </a></li>
+  <li><a href="#http://creativecommons.org/ns#license" title="http://creativecommons.org/ns#license"> <span>license</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/modified" title="http://purl.org/dc/terms/modified"> <span>modified</span> </a></li>
+  <li><a href="#http://www.w3.org/2004/02/skos/core#note" title="http://www.w3.org/2004/02/skos/core#note"> <span>note</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/publisher" title="http://purl.org/dc/terms/publisher"> <span>publisher</span> </a></li>
+  <li><a href="#http://purl.org/dc/terms/title" title="http://purl.org/dc/terms/title"> <span>title</span> </a></li>
+ </ul>
+ <div class="entity" id="http://purl.org/dc/terms/description">
+  <h3>description<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/description</p>
+ </div>
+ <div class="entity" id="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled">
+  <h3>is Rule Enabled<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/issued">
+  <h3>issued<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/issued</p>
+ </div>
+ <div class="entity" id="http://creativecommons.org/ns#license">
+  <h3>license<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://creativecommons.org/ns#license</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/modified">
+  <h3>modified<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/modified</p>
+ </div>
+ <div class="entity" id="http://www.w3.org/2004/02/skos/core#note">
+  <h3>note<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#note</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/publisher">
+  <h3>publisher<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/publisher</p>
+ </div>
+ <div class="entity" id="http://purl.org/dc/terms/title">
+  <h3>title<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.org/dc/terms/title</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City"> <span>City</span> </a></li>
+  <li><a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event"> <span>Event</span> </a></li>
+  <li><a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel"> <span>Hotel</span> </a></li>
+  <li><a href="#MexicanCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine">MexicanCuisine</a></li>
+  <li><a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument"> <span>Monument</span> </a></li>
+  <li><a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant"> <span>Restaurant</span> </a></li>
+ </ul>
+ <div class="entity" id="City">
+  <h3>City<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Cádiz"</span>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#City">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Event">
+  <h3>Event<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup> <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasDate" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-04-19"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Carnaval de Cádiz"</span>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Event">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Hotel">
+  <h3>Hotel<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#LuxuryHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd></dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Hotel Vista Cadiz"</span>
+   </dd>
+   <dd>
+    <a href="#hasPrice" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasPrice">hasPrice</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"278"^^<a href="http://www.w3.org/2001/XMLSchema#decimal" target="_blank" title="http://www.w3.org/2001/XMLSchema#decimal">decimal</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.7"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Hotel">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MexicanCuisine">
+  <h3>MexicanCuisine<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine</p>
+  <div class="comment">
+   <span class="markdown">Traditional Mexican Cuisine</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#CuisineType" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CuisineType">Cuisine Type</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Monument">
+  <h3>Monument<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Monument" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Monument">Monument</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Castillo de Cadiz"</span>
+   </dd>
+   <dd>
+    <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"4.0"^^<a href="http://www.w3.org/2001/XMLSchema#float" target="_blank" title="http://www.w3.org/2001/XMLSchema#float">float</a> </span>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Monument">class</a>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Restaurant">
+  <h3>Restaurant<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Attraction" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Attraction">Attraction</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#City" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#City">City</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Restaurant" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Restaurant">Restaurant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#TourismResource" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#TourismResource">Tourism Resource</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dd>
+    <a href="#Transport" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Transport">Transport</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasCuisine">hasCuisine</a> <sup class="type-op" title="object property">op</sup> <a href="#MexicanCuisine" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#MexicanCuisine">MexicanCuisine</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasName" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasName">hasName</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Restaurante Gourmet Cadiz"</span>
+   </dd>
+   <dt>
+    is also defined as
+   </dt>
+   <dd>
+    <a href="#Restaurant">class</a>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e1485">S1</a></li>
+  <li><a href="#d4e1607">S2</a></li>
+  <li><a href="#d4e1300">S3</a></li>
+ </ul>
+ <div class="entity" id="d4e1485">
+  <h3>S1<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Regla para Hoteles de Lujo (Rating ≥ 5)<br><br><a href="#Hotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Hotel">Hotel</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#hasRating" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasRating">hasRating</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual" title="greaterThanOrEqual">greaterThanOrEqual</a>(?) -&gt; <a href="#LuxuryHotel" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#LuxuryHotel">LuxuryHotel</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+ <div class="entity" id="d4e1607">
+  <h3>S2<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Regla para Eventos Culturales en Cádiz<br><br><a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>(?,?) -&gt; <a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+ <div class="entity" id="d4e1300">
+  <h3>S3<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p>Regla para eventos ocurridos en Cádiz en Febrero<br><br><a href="#Event" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#Event">Event</a> <sup class="type-c" title="class">c</sup>(?) , <a href="#occursIn" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#occursIn">occursIn</a> <sup class="type-op" title="object property">op</sup>(?,?) , <a href="#hasDate" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#hasDate">hasDate</a> <sup class="type-dp" title="data property">dp</sup>(?,?) , <a href="http://www.w3.org/2003/11/swrlb#greaterThanOrEqual" title="greaterThanOrEqual">greaterThanOrEqual</a>(?) , <a href="http://www.w3.org/2003/11/swrlb#lessThanOrEqual" title="lessThanOrEqual">lessThanOrEqual</a>(?) -&gt; <a href="#CulturalEvent" title="http://www.semanticweb.org/josemariadevegafernandez/ontologies/2025/3/ostr#CulturalEvent">CulturalEvent</a> <sup class="type-c" title="class">c</sup>(?)</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+   
+
+<!--CHANGELOG SECTION-->
+   <div id="changelog">null</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
